@@ -2,11 +2,13 @@ package br.com.udemy.tasks.model;
 
 import br.com.udemy.tasks.service.TaskService;
 import lombok.Getter;
-import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
 @Getter
 public class Task {
 
+    @Id
+    private String id;
     private String title;
     private String description;
     private int priority;
@@ -20,11 +22,6 @@ public class Task {
         this.description = builder.description;
         this.priority = builder.priority;
         this.state = builder.state;
-    }
-
-    public Task newTask() {
-        TaskService.taskList.add(this);
-        return this;
     }
 
     public Task insert() {
