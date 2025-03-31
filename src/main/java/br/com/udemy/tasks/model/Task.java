@@ -18,6 +18,7 @@ public class Task {
     }
 
     public Task(Builder builder) {
+        this.id = builder.id;
         this.title = builder.title;
         this.description = builder.description;
         this.priority = builder.priority;
@@ -39,6 +40,7 @@ public class Task {
     }
 
     public static class Builder {
+        private String id;
         private String title;
         private String description;
         private int priority;
@@ -48,10 +50,16 @@ public class Task {
         }
 
         public Builder(Task task) {
+            this.id = task.id;
             this.title = task.title;
             this.description = task.description;
             this.priority = task.priority;
             this.state = task.state;
+        }
+
+        public Builder withId(String id) {
+            this.id = id;
+            return this;
         }
 
         public Builder withTitle(String title) {
